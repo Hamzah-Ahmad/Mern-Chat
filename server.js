@@ -30,9 +30,9 @@ app.use(express.json());
 //Setting up web sockets
 io.on("connection", (socket) => {
   socket.on("joinRoom", ({ user, room }) => {
-    socket.join(room);
+    socket.join(room.toLowerCase());
     socket.username = user.name; //We gave the sockets a username property so that we could use it to identify which user just disconnected
-    socket.chatroom = room;
+    socket.chatroom = room.toLowerCase();
     socket.broadcast
       .to(socket.chatroom)
       .emit("welcomeUser", `${user.name} has joined the room`);

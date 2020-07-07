@@ -82,7 +82,7 @@ const Login = ({ history, mediaMatch, setBackDrop }) => {
           type="submit"
           style={mediaMatch ? style.button : style.mobileButton}
         >
-          Submit
+          Login
         </Button>
       </form>
     </div>
@@ -93,7 +93,7 @@ const style = {
   button: {
     width: "100%",
     position: "absolute",
-    height: "60px",
+    // height: "60px",
     bottom: 0,
     left: 0,
     backgroundColor: "#407ad6",
@@ -104,7 +104,7 @@ const style = {
     margin: 50,
     marginTop: "5%",
     backgroundColor: "#f2f2f2",
-    height: "35vh",
+    // height: "35vh",
     width: "50%",
     position: "relative",
   },

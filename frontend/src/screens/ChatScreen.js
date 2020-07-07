@@ -1,8 +1,8 @@
 /* eslint-disable */
 import React, { useContext, useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
-// const socket = io("http://localhost:5000");
-const socket = io("/");
+const socket = io("http://localhost:5000");
+// const socket = io("/");
 import { AuthContext } from "../context/AuthContext";
 import ChatBubble from "../components/ChatBubble";
 

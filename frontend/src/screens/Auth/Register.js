@@ -83,7 +83,7 @@ const Register = ({ history, mediaMatch, setBackDrop }) => {
           type="submit"
           style={mediaMatch ? style.button : style.mobileButton}
         >
-          Submit
+          Register
         </Button>
       </form>
     </div>
@@ -94,7 +94,7 @@ const style = {
   button: {
     width: "100%",
     position: "absolute",
-    height: "60px",
+    // height: "60px",
     bottom: 0,
     left: 0,
     backgroundColor: "#407ad6",
@@ -104,7 +104,7 @@ const style = {
     padding: 50,
     margin: 50,
     marginTop: "5%",
-    height: "35vh",
+    // height: "35vh",
     backgroundColor: "#f2f2f2",
     width: "50%",
     position: "relative",

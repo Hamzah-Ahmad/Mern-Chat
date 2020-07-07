@@ -12,22 +12,24 @@ const AuthScreen = ({ history }) => {
   const mediaMatch = useMediaQuery("(min-width:760px)");
 
   return (
-    <div style={mediaMatch ? style.container : style.mobileContainer}>
-      <Backdrop style={style.backdrop} open={showBackdrop}>
-        <CircularProgress color="inherit" />
-      </Backdrop>
-
-      <Login
-        history={history}
-        mediaMatch={mediaMatch}
-        setBackDrop={setBackDrop}
-      />
-      <Register
-        history={history}
-        mediaMatch={mediaMatch}
-        setBackDrop={setBackDrop}
-      />
-    </div>
+    <>
+      {mediaMatch && <div style={style.title}>MernChat</div>}
+      <div style={mediaMatch ? style.container : style.mobileContainer}>
+        <Backdrop style={style.backdrop} open={showBackdrop}>
+          <CircularProgress color="inherit" />
+        </Backdrop>
+        <Login
+          history={history}
+          mediaMatch={mediaMatch}
+          setBackDrop={setBackDrop}
+        />
+        <Register
+          history={history}
+          mediaMatch={mediaMatch}
+          setBackDrop={setBackDrop}
+        />
+      </div>
+    </>
   );
 };
 
@@ -46,6 +48,12 @@ const style = {
     flexDirection: "column",
     justifyContent: "space-around",
     height: "100vh",
+  },
+  title: {
+    textAlign: "center",
+    fontSize: 50,
+    fontWeight: 600,
+    color: "#fff",
   },
 };
 
