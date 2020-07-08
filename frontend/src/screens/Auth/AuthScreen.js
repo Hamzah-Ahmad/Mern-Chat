@@ -21,6 +21,7 @@ const AuthScreen = ({ history }) => {
           mediaMatch={mediaMatch}
           setBackDrop={setBackDrop}
         />
+        {!mediaMatch && <div style={{ marginTop: 40 }}></div>}
         <Register
           history={history}
           mediaMatch={mediaMatch}
@@ -44,8 +45,8 @@ const style = {
   mobileContainer: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-around",
-    height: "100vh",
+    justifyContent: "space-between",
+    // height: "100vh",
   },
   title: {
     textAlign: "center",
