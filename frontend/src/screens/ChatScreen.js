@@ -1,8 +1,6 @@
-/* eslint-disable */
 import React, { useContext, useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
-const socket = io("http://localhost:5000");
-// const socket = io("/");
+
 import { AuthContext } from "../context/AuthContext";
 import ChatBubble from "../components/ChatBubble";
 
@@ -10,10 +8,11 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
+const socket = io("/");
+// const socket = io("http://localhost:5000");
+
 const ChatScreen = (props) => {
-  const { isLoggedIn, token, user, loginFunc, logoutFunc } = useContext(
-    AuthContext
-  );
+  const { user, logoutFunc } = useContext(AuthContext);
   const [message, setMessage] = useState("");
   const [alertText, setAlertText] = useState("");
   const [alertOpacity, setAlertOpacity] = useState(0);
@@ -33,8 +32,6 @@ const ChatScreen = (props) => {
     props.history.push("/");
   };
   useEffect(() => {
-    // console.log(room);
-    let mounted = true;
     socket.emit("joinRoom", { user, room });
     socket.on("message", (message) => {
       console.log(message.user.email);
@@ -53,8 +50,6 @@ const ChatScreen = (props) => {
     });
     return () => {
       socket.emit("leaveRoom");
-
-      mounted = false;
     };
   }, []);
 
@@ -145,7 +140,6 @@ const style = {
     margin: "auto",
     borderRadius: 20,
     backgroundColor: "#edf4ff",
-    // height: "70vh",
   },
   container: {
     width: "80%",
@@ -187,7 +181,6 @@ const style = {
     margin: "auto",
     borderRadius: 20,
     backgroundColor: "#edf4ff",
-    // height: "70vh",
   },
   navbar: {
     display: "flex",

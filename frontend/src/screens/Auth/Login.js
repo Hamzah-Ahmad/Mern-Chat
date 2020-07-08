@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
@@ -13,14 +11,12 @@ const Login = ({ history, mediaMatch, setBackDrop }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { isLoggedIn, token, user, loginFunc, logoutFunc } = useContext(
-    AuthContext
-  );
+  const { isLoggedIn, loginFunc } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
-    if (email == "" || password == "") {
+    if (email === "" || password === "") {
       setError({ msg: "Fields cannot be empty" });
       return;
     }
@@ -35,7 +31,6 @@ const Login = ({ history, mediaMatch, setBackDrop }) => {
         },
       })
       .then((res) => {
-        // console.log(res.data);
         loginFunc(res.data.token, res.data.user);
         history.push("/");
       })
@@ -44,13 +39,9 @@ const Login = ({ history, mediaMatch, setBackDrop }) => {
         setBackDrop(false);
         setError(err.response.data);
       });
-
-    // setEmail("");
-    // setPassword("");
   };
 
   useEffect(() => {
-    // console.log(isLoggedIn);
     if (isLoggedIn) {
       history.push("/");
     }
@@ -93,7 +84,6 @@ const style = {
   button: {
     width: "100%",
     position: "absolute",
-    // height: "60px",
     bottom: 0,
     left: 0,
     backgroundColor: "#407ad6",
@@ -104,7 +94,6 @@ const style = {
     margin: 50,
     marginTop: "5%",
     backgroundColor: "#f2f2f2",
-    // height: "35vh",
     width: "50%",
     position: "relative",
   },

@@ -1,7 +1,4 @@
-/* eslint-disable */
-
 import React, { useState, useContext } from "react";
-import ChatScreen from "./ChatScreen";
 import { AuthContext } from "../context/AuthContext";
 
 import TextField from "@material-ui/core/TextField";
@@ -9,22 +6,12 @@ import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const HomeScreen = (props) => {
-  const { isLoggedIn, token, user, loginFunc, logoutFunc } = useContext(
-    AuthContext
-  );
+  const { logoutFunc } = useContext(AuthContext);
   const mediaMatch = useMediaQuery("(min-width:700px)");
-
-  // let [room, setRoom] = useState("General");
   const [textInput, setTextInput] = useState("");
   const [selectInput, setSelectInput] = useState("General");
-  const handleChange = (e) => {
-    setRoom(e.target.value);
-  };
-  const enterRoom = () => {
-    // room = room.split(" ").join("_");
-    // console.log(room);
-    // props.history.push(`chat/${room}`);
 
+  const enterRoom = () => {
     let room;
     if (textInput) {
       room = textInput;
@@ -35,7 +22,6 @@ const HomeScreen = (props) => {
     props.history.push(`chat/${room}`);
   };
 
-  // useEffect(() => console.log(room));
   return (
     <div style={mediaMatch ? style.container : null}>
       <div style={style.navbar}>
