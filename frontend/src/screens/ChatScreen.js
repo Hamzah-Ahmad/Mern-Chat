@@ -135,6 +135,7 @@ const style = {
     color: "#fff",
     width: "100%",
     marginTop: 10,
+    marginBottom: 10,
   },
   chatContainer: {
     display: "flex",
@@ -144,7 +145,7 @@ const style = {
     margin: "auto",
     borderRadius: 20,
     backgroundColor: "#edf4ff",
-    height: "70vh",
+    // height: "70vh",
   },
   container: {
     width: "80%",
@@ -154,6 +155,7 @@ const style = {
     color: "#fff",
     width: "100%",
     marginTop: 10,
+    marginBottom: 10,
   },
   input: {
     width: "100%",
@@ -185,7 +187,7 @@ const style = {
     margin: "auto",
     borderRadius: 20,
     backgroundColor: "#edf4ff",
-    height: "70vh",
+    // height: "70vh",
   },
   navbar: {
     display: "flex",
