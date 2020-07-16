@@ -140,6 +140,7 @@ const style = {
     margin: "auto",
     borderRadius: 20,
     backgroundColor: "#edf4ff",
+    height: "70vh",
   },
   container: {
     width: "80%",
